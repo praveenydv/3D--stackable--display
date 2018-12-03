@@ -1,0 +1,274 @@
+/*
+ * 2dledblink.c
+ *
+ * Created: 28-05-2018 12:36:14
+ * Author : Praveen Yadav
+ */ 
+#define F_CPU 16000000
+#include <avr/io.h>
+#include <util/delay.h >
+#include <math.h>
+void light(int x,int y){
+	    int a,b,c,d,e,f;
+		  
+		 a=b=c=d=e=f=0;
+		 c=x%2;
+		 x=x/2;
+		 b=x%2;
+		 x=x/2;
+		 a=x%2;
+		 
+		 f=y%2;
+		 y=y/2;
+		 e=y%2;
+		 y=y/2;
+		 d=y%2;
+		PORTA=(a<<PA0)|(b<<PA1)|(c<<PA2)|(d<<PA3)|(e<<PA4)|(f<<PA5);
+	
+}
+int main(void)
+{int i,j=100;
+    DDRA=0xFF;
+	while(1){
+	 
+int k=0;
+ 
+ while(k<j){
+	 for(  i=1;i<7;i++){
+	 light(i,7);
+	 _delay_us(20);
+	 light(i,4);
+	 _delay_us(20);
+	 light(1,i);
+	 _delay_us(20);}
+	 light(1,7);
+	 _delay_us(20);
+	  light(6,5);
+	  _delay_us(20);
+	   light(6,6);
+	   _delay_us(20);
+	   
+	  
+	 k++;}
+	 
+ 
+ 
+ while(k<2*j){
+	 for(  i=1;i<7;i++){
+		 light(i,7);
+		 _delay_us(20);
+		 light(i,4);
+		 _delay_us(20);
+		 light(1,i);
+	 _delay_us(20);}
+	 light(1,7);
+	 _delay_us(20);
+	  light(6,5);
+	  _delay_us(20);
+	  light(6,6);
+	  _delay_us(20);
+	  
+	  light(4,3);
+	  _delay_us(20);
+	   light(5,2);
+	   _delay_us(20);
+	    light(6,1);
+	    _delay_us(20);
+	    
+	   
+ k++;}
+ while(k<3*j){
+	 for(i=1;i<7;i++){
+	 light(1,i);
+	 _delay_us(20);
+	 light(6,i);
+	 _delay_us(20);}
+	 for(i=2;i<6;i++){
+	 light(i,7);
+	 _delay_us(20);
+	 light(i,4);
+	 _delay_us(20);}
+	 
+	 k++;
+ }
+ 
+  while(k<4*j){
+	  for(i=3;i<8;i++){
+	  light(1,i);
+	  _delay_us(20);
+	  light(6,i);
+	  _delay_us(20);}
+	  
+	  light(2,2);
+	  _delay_us(20);
+	  light(3,1);
+	  _delay_us(20);
+	  light(4,1);
+	  _delay_us(20);
+	  light(5,2);
+	  _delay_us(20);
+	  
+	   
+	  k++;}
+	  
+	  while(k<5*j){
+	  for(i=1;i<7;i++){
+	 
+	  light(i,1);
+	   _delay_us(20);
+	   light(i,7);
+	   _delay_us(20);
+	    light(i,4);
+	    _delay_us(20);}
+		for(i=1;i<7;i++){
+        light(1,i);
+       _delay_us(20);		}
+	 
+	  k++;
+  }
+  DDRA=0x00;
+  _delay_ms(100);
+  DDRA=0xFF;
+   while(k<6*j){
+	   for(i=1;i<7;i++){
+		   
+		   light(i,1);
+		   _delay_us(20);
+		   light(i,7);
+		   _delay_us(20);
+		   light(i,4);
+	   _delay_us(20);}
+	   for(i=1;i<7;i++){
+		   light(1,i);
+	   _delay_us(20);		}
+	   
+	   k++;
+   }
+   
+  while(k<7*j){
+	 for(i=1;i<8;i++){
+	  light(1,i);
+	   _delay_us(20);
+	   light(6,i);
+	   _delay_us(20);}
+	    
+	   light(2,6);
+	   _delay_us(20);
+	    light(3,5);
+	    _delay_us(20);
+		 light(4,4);
+		 _delay_us(20);
+		  light(5,3);
+		  _delay_us(20);
+		      k++;
+  }
+  
+  DDRA=0x00;
+  _delay_ms(500);
+  DDRA=0xFF;
+  
+  while(k<8*j){
+	   light(1,7);
+	   _delay_us(20);
+	   light(6,6);
+	   _delay_us(20);
+	   light(6,7);
+	   _delay_us(20);
+	   light(2,5);
+	   _delay_us(20);
+	   light(5,5);
+	   _delay_us(20); 
+	   light(3,4);
+	   _delay_us(20);
+	   light(4,4);
+	   _delay_us(20);
+	   light(1,6);
+	   _delay_us(20);
+	   light(4,3);
+	   _delay_us(20); 
+	   light(4,2);
+	   _delay_us(20);
+	   light(4,1);
+	   _delay_us(20);
+	    
+	   light(3,3);
+	   _delay_us(20);
+	    light(3,2);
+	    _delay_us(20);
+	    light(3,1);
+	    _delay_us(20);
+	     
+	   k++;
+  }
+  
+  while(k<9*j){
+	  for(i=1;i<7;i++){
+		  light(1,i);
+		  _delay_us(20);
+		  light(6,i);
+	  _delay_us(20);}
+	  for(i=2;i<6;i++){
+		  light(i,7);
+		  _delay_us(20);
+		  light(i,4);
+	  _delay_us(20);}
+	  
+	  k++;
+  }
+  
+  while(k<10*j){
+  for(i=1;i<6;i++){
+	  light(i,7);
+	  _delay_us(20);
+	  light(i,1);
+	  _delay_us(20);
+	  
+  }
+  for(i=2;i<7;i++){
+ light(6,i);
+ _delay_us(20);
+ light(3,i);
+ _delay_us(20);
+ 
+  }
+  k++;
+  
+  }
+    while(k<11*j){
+	    for(i=1;i<7;i++){
+		    light(1,i);
+		    _delay_us(20);
+		    light(6,i);
+	    _delay_us(20);}
+	    for(i=2;i<6;i++){
+		    light(i,7);
+		    _delay_us(20);
+		    light(i,4);
+	    _delay_us(20);}
+	    
+	    k++;
+    }
+  
+  
+   while(k<12*j){
+	   for(i=3;i<8;i++){
+		   light(1,i);
+		   _delay_us(20);
+		   light(6,i);
+	   _delay_us(20);}
+	   
+	   light(2,2);
+	   _delay_us(20);
+	   light(3,1);
+	   _delay_us(20);
+	   light(4,1);
+	   _delay_us(20);
+	   light(5,2);
+	   _delay_us(20);
+	   
+	   
+   k++;}
+   
+  
+	}
+}

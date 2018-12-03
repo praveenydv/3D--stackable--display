@@ -1,0 +1,289 @@
+/*
+ * 2dledblink.c
+ *
+ * Created: 28-05-2018 12:36:14
+ * Author : Praveen Yadav
+ */ 
+
+#include <avr/io.h>
+#include <util/delay.h >
+#include <math.h>
+void light(int x,int y){
+	    int a,b,c,d,e,f;
+		  
+		 a=b=c=d=e=f=0;
+		 c=x%2;
+		 x=x/2;
+		 b=x%2;
+		 x=x/2;
+		 a=x%2;
+		 
+		 f=y%2;
+		 y=y/2;
+		 e=y%2;
+		 y=y/2;
+		 d=y%2;
+		PORTA=(a<<PA0)|(b<<PA1)|(c<<PA2)|(d<<PA3)|(e<<PA4)|(f<<PA5);
+	
+}
+int main(void)
+{
+    DDRA=0xFF;
+	while(1){
+		int i=0;
+	
+	while(i<1000){
+		 light(2,1);
+		 _delay_us(10);
+		  light(2,2);
+		  _delay_us(10);
+		   light(2,3);
+		   _delay_us(10);
+		    light(2,4);
+		    _delay_us(10);
+		     light(2,5);
+		     _delay_us(10);
+		      light(2,6);
+		      _delay_us(10);
+		       light(3,6);
+		       _delay_us(10);
+		        light(4,6);
+		        _delay_us(10);
+		         light(5,6);
+		         _delay_us(10);
+		          light(5,5);
+		          _delay_us(10);
+		           light(5,4);
+		           _delay_us(10);
+		            light(5,3);
+		            _delay_us(10);
+		             light(4,3);
+		             _delay_us(10);
+		              light(3,3);
+		              _delay_us(10);
+					   light(2,3);
+					   _delay_us(10);
+				i++;	   
+		              
+	}
+	
+	
+		while(i<2000){
+			light(2,1);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(2,3);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(2,6);
+			_delay_us(10);
+			light(3,6);
+			_delay_us(10);
+			light(4,6);
+			_delay_us(10);
+			light(5,6);
+			_delay_us(10);
+			light(5,5);
+			_delay_us(10);
+			light(5,4);
+			_delay_us(10);
+			light(5,3);
+			_delay_us(10);
+			light(4,3);
+			_delay_us(10);
+			light(3,3);
+			_delay_us(10);
+			light(2,3);
+			_delay_us(10);
+			light(4,2);
+			_delay_us(10);
+			light(5,1);
+			_delay_us(10);
+			i++;
+			
+		}
+		
+		while(i<3000){
+			light(2,1);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(2,3);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(3,6);
+			_delay_us(10);
+			light(4,6);
+			_delay_us(10);
+			light(5,5);
+			_delay_us(10);
+			light(5,4);
+			_delay_us(10);
+			light(5,3);
+			_delay_us(10);
+			light(5,2);
+			_delay_us(10);
+			light(5,1);
+			_delay_us(10);
+			light(3,3);
+			_delay_us(10);
+			light(4,3); 
+			i++;
+			
+		}
+		
+		
+		while(i<4000){
+			light(2,6);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			light(2,3);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(3,1);
+			_delay_us(10);
+		
+			light(4,1);
+			_delay_us(10);
+			light(5,2);
+			_delay_us(10);
+			light(5,3);
+			_delay_us(10);
+			light(5,4);
+			_delay_us(10);
+			light(5,5);
+			_delay_us(10);
+			light(5,6);
+			_delay_us(10);
+			 
+			i++;
+			
+		}
+		while(i<5000){
+			light(2,6);
+			_delay_us(10);
+			light(3,6);
+			_delay_us(10);
+			light(4,6);
+			_delay_us(10);
+			light(5,6);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			
+			light(2,3);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(2,1);
+			_delay_us(10);
+			light(3,1);
+			_delay_us(10);
+			light(4,1);
+			_delay_us(10);
+			light(5,1);
+			_delay_us(10);
+			light(5,4);
+			_delay_us(10);
+			light(4,4);
+			_delay_us(10);
+			light(3,4);
+			_delay_us(10);
+			 
+			i++;
+			
+		}
+		DDRA=0x00;
+		_delay_ms(1000);
+		_delay_ms(1000);
+		DDRA=0xFF;
+		
+		while(i<6000){
+			light(2,6);
+			_delay_us(10);
+			light(3,6);
+			_delay_us(10);
+			light(4,6);
+			_delay_us(10);
+			light(5,6);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			
+			light(2,3);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(2,1);
+			_delay_us(10);
+			light(3,1);
+			_delay_us(10);
+			light(4,1);
+			_delay_us(10);
+			light(5,1);
+			_delay_us(10);
+			light(5,4);
+			_delay_us(10);
+			light(4,4);
+			_delay_us(10);
+			light(3,4);
+			_delay_us(10);
+			
+			i++;
+			
+		}
+		while(i<7000){
+			light(2,1);
+			_delay_us(10);
+			light(2,2);
+			_delay_us(10);
+			light(2,3);
+			_delay_us(10);
+			light(2,4);
+			_delay_us(10);
+			light(2,5);
+			_delay_us(10);
+			light(2,6);
+			_delay_us(10);
+			light(6,1);
+			_delay_us(10);
+			light(6,2);
+			_delay_us(10);
+			light(6,3);
+			_delay_us(10);
+			light(6,4);
+			_delay_us(10);
+			light(6,5);
+			_delay_us(10);
+			light(6,6);
+			_delay_us(10);
+			light(3,5);
+			_delay_us(10);
+			light(4,4);
+			_delay_us(10);
+			light(4,3);
+			_delay_us(10);
+			light(5,2);
+			_delay_us(10);
+			 
+		 
+			i++;
+			
+		}
+	 }
+}

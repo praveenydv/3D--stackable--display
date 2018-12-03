@@ -1,0 +1,81 @@
+
+void square(void) 
+{
+     
+	
+  
+	while(1){
+int t=10;	 
+int k=0;
+while(k<t){
+light(3,3,7);
+_delay_us(20);
+light(4,4,7);
+_delay_us(20);
+light(3,4,7);
+_delay_us(20);
+light(4,3,7);
+_delay_us(20);
+k++;}
+while(k<2*t){
+for(int l=2;l<6;l++){
+light(l,2,7);
+_delay_us(20);
+light(2,l,7);
+_delay_us(20);
+light(5,l,7);
+_delay_us(20);
+light(l,5,7);
+}
+  
+k++;}
+while(k<3*t){
+for(int i=1;i<7;i++)
+{light(1,i,7);
+_delay_us(20);
+light(i,1,7);
+_delay_us(20);
+light(6,i,7);
+_delay_us(20);
+light(i,6,7);
+_delay_us(20);}
+k++;}
+
+while(k<4*t){
+for(int j=0;j<8;j++){
+light(j,0,7);
+_delay_us(20);
+light(0,j,7);
+_delay_us(20);
+light(7,j,7);
+_delay_us(20);
+light(j,7,7);
+_delay_us(20);}
+k++;}
+
+while(k<5*t){
+	for(int i=1;i<7;i++)
+	{light(1,i,7);
+		_delay_us(20);
+		light(i,1,7);
+		_delay_us(20);
+		light(6,i,7);
+		_delay_us(20);
+		light(i,6,7);
+	_delay_us(20);}
+k++;}
+
+while(k<6*t){
+	for(int l=2;l<6;l++){
+		light(l,2,7);
+		_delay_us(20);
+		light(2,l,7);
+		_delay_us(20);
+		light(5,l,7);
+		_delay_us(20);
+		light(l,5,7);
+	}
+	
+k++;}
+	}
+} 
